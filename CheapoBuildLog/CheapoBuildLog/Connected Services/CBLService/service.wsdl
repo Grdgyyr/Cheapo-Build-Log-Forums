@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CBLService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/CBLServer.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICBLService_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetAllUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUser" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetAllUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetThreads_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetThreads" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetThreads_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetThreadsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetTotalThreads_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalThreads" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetTotalThreads_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalThreadsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetUserCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserCount" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetUserCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetCurrentThread_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentThread" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetCurrentThread_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentThreadResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetCurrentThreadForum_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentThreadForum" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetCurrentThreadForum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentThreadForumResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_CreateThread_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateThread" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_CreateThread_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateThreadResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetUserByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByID" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetUserByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_getThreadComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:getThreadComment" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_getThreadComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getThreadCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_AddComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddComment" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_AddComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetCurrentThreadByThread_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentThreadByThread" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetCurrentThreadByThread_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentThreadByThreadResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetCommentCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommentCount" />
+  </wsdl:message>
+  <wsdl:message name="ICBLService_GetCommentCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommentCountResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICBLService">
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICBLService/AddUser" message="tns:ICBLService_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICBLService/AddUserResponse" message="tns:ICBLService_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICBLService/UpdateUser" message="tns:ICBLService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICBLService/UpdateUserResponse" message="tns:ICBLService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICBLService/DeleteUser" message="tns:ICBLService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICBLService/DeleteUserResponse" message="tns:ICBLService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICBLService/GetAllUser" message="tns:ICBLService_GetAllUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICBLService/GetAllUserResponse" message="tns:ICBLService_GetAllUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICBLService/GetUser" message="tns:ICBLService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICBLService/GetUserResponse" message="tns:ICBLService_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetThreads">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICBLService/GetThreads" message="tns:ICBLService_GetThreads_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICBLService/GetThreadsResponse" message="tns:ICBLService_GetThreads_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalThreads">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICBLService/GetTotalThreads" message="tns:ICBLService_GetTotalThreads_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICBLService/GetTotalThreadsResponse" message="tns:ICBLService_GetTotalThreads_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICBLService/GetUserCount" message="tns:ICBLService_GetUserCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICBLService/GetUserCountResponse" message="tns:ICBLService_GetUserCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentThread">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICBLService/GetCurrentThread" message="tns:ICBLService_GetCurrentThread_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICBLService/GetCurrentThreadResponse" message="tns:ICBLService_GetCurrentThread_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentThreadForum">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICBLService/GetCurrentThreadForum" message="tns:ICBLService_GetCurrentThreadForum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICBLService/GetCurrentThreadForumResponse" message="tns:ICBLService_GetCurrentThreadForum_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateThread">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICBLService/CreateThread" message="tns:ICBLService_CreateThread_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICBLService/CreateThreadResponse" message="tns:ICBLService_CreateThread_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICBLService/GetUserByID" message="tns:ICBLService_GetUserByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICBLService/GetUserByIDResponse" message="tns:ICBLService_GetUserByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getThreadComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICBLService/getThreadComment" message="tns:ICBLService_getThreadComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICBLService/getThreadCommentResponse" message="tns:ICBLService_getThreadComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICBLService/AddComment" message="tns:ICBLService_AddComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICBLService/AddCommentResponse" message="tns:ICBLService_AddComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentThreadByThread">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICBLService/GetCurrentThreadByThread" message="tns:ICBLService_GetCurrentThreadByThread_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICBLService/GetCurrentThreadByThreadResponse" message="tns:ICBLService_GetCurrentThreadByThread_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICBLService/GetCommentCount" message="tns:ICBLService_GetCommentCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICBLService/GetCommentCountResponse" message="tns:ICBLService_GetCommentCount_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICBLService" type="tns:ICBLService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/ICBLService/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/ICBLService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/ICBLService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUser">
+      <soap:operation soapAction="http://tempuri.org/ICBLService/GetAllUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/ICBLService/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetThreads">
+      <soap:operation soapAction="http://tempuri.org/ICBLService/GetThreads" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalThreads">
+      <soap:operation soapAction="http://tempuri.org/ICBLService/GetTotalThreads" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCount">
+      <soap:operation soapAction="http://tempuri.org/ICBLService/GetUserCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentThread">
+      <soap:operation soapAction="http://tempuri.org/ICBLService/GetCurrentThread" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentThreadForum">
+      <soap:operation soapAction="http://tempuri.org/ICBLService/GetCurrentThreadForum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateThread">
+      <soap:operation soapAction="http://tempuri.org/ICBLService/CreateThread" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByID">
+      <soap:operation soapAction="http://tempuri.org/ICBLService/GetUserByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getThreadComment">
+      <soap:operation soapAction="http://tempuri.org/ICBLService/getThreadComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddComment">
+      <soap:operation soapAction="http://tempuri.org/ICBLService/AddComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentThreadByThread">
+      <soap:operation soapAction="http://tempuri.org/ICBLService/GetCurrentThreadByThread" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentCount">
+      <soap:operation soapAction="http://tempuri.org/ICBLService/GetCommentCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CBLService">
+    <wsdl:port name="BasicHttpBinding_ICBLService" binding="tns:BasicHttpBinding_ICBLService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/CBLServer/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

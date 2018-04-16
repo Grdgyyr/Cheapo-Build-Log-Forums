@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CBLServer.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CBLServer.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfuser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="user" nillable="true" type="tns:user" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfuser" nillable="true" type="tns:ArrayOfuser" />
+  <xs:complexType name="user">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="forum_thread" nillable="true" type="tns:ArrayOfforum_thread" />
+      <xs:element minOccurs="0" name="rigs" nillable="true" type="tns:ArrayOfrig" />
+      <xs:element minOccurs="0" name="thread_comment" nillable="true" type="tns:ArrayOfthread_comment" />
+      <xs:element minOccurs="0" name="user_address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="user_age" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="user_bio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="user_birthday" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="user_email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="user_first" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="user_gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="user_group" nillable="true" type="tns:ArrayOfuser_group" />
+      <xs:element minOccurs="0" name="user_id" type="xs:int" />
+      <xs:element minOccurs="0" name="user_last" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="user_mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="user_nickname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="user_password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="user_picture" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="user_rating_helpful" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="user_rating_like" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="user_rating_useful" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="user_registered_date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="user_thread_count" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="user_username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="user" nillable="true" type="tns:user" />
+  <xs:complexType name="ArrayOfforum_thread">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="forum_thread" nillable="true" type="tns:forum_thread" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfforum_thread" nillable="true" type="tns:ArrayOfforum_thread" />
+  <xs:complexType name="forum_thread">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="forum" nillable="true" type="tns:forum" />
+      <xs:element minOccurs="0" name="forum_id" type="xs:int" />
+      <xs:element minOccurs="0" name="forum_thread_id" type="xs:int" />
+      <xs:element minOccurs="0" name="thread" nillable="true" type="tns:thread" />
+      <xs:element minOccurs="0" name="thread_id" type="xs:int" />
+      <xs:element minOccurs="0" name="user" nillable="true" type="tns:user" />
+      <xs:element minOccurs="0" name="user_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="forum_thread" nillable="true" type="tns:forum_thread" />
+  <xs:complexType name="forum">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="forum_description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="forum_id" type="xs:int" />
+      <xs:element minOccurs="0" name="forum_islocked" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="forum_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="forum_permission" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="forum_thread" nillable="true" type="tns:ArrayOfforum_thread" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="forum" nillable="true" type="tns:forum" />
+  <xs:complexType name="thread">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="forum_thread" nillable="true" type="tns:ArrayOfforum_thread" />
+      <xs:element minOccurs="0" name="thread_comment" nillable="true" type="tns:ArrayOfthread_comment" />
+      <xs:element minOccurs="0" name="thread_created" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="thread_description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="thread_id" type="xs:int" />
+      <xs:element minOccurs="0" name="thread_iscommentlock" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="thread_islocked" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="thread_permission" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="thread_rating_helpful" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="thread_rating_like" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="thread_title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="thread" nillable="true" type="tns:thread" />
+  <xs:complexType name="ArrayOfthread_comment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="thread_comment" nillable="true" type="tns:thread_comment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfthread_comment" nillable="true" type="tns:ArrayOfthread_comment" />
+  <xs:complexType name="thread_comment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="comment" nillable="true" type="tns:comment" />
+      <xs:element minOccurs="0" name="comment_id" type="xs:int" />
+      <xs:element minOccurs="0" name="thread" nillable="true" type="tns:thread" />
+      <xs:element minOccurs="0" name="thread_comment_id" type="xs:int" />
+      <xs:element minOccurs="0" name="thread_id" type="xs:int" />
+      <xs:element minOccurs="0" name="user" nillable="true" type="tns:user" />
+      <xs:element minOccurs="0" name="user_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="thread_comment" nillable="true" type="tns:thread_comment" />
+  <xs:complexType name="comment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="comment_description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="comment_id" type="xs:int" />
+      <xs:element minOccurs="0" name="thread_comment" nillable="true" type="tns:ArrayOfthread_comment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="comment" nillable="true" type="tns:comment" />
+  <xs:complexType name="ArrayOfrig">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="rig" nillable="true" type="tns:rig" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfrig" nillable="true" type="tns:ArrayOfrig" />
+  <xs:complexType name="rig">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="rig_GPU" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rig_PSU" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rig_case" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rig_cooler" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rig_id" type="xs:int" />
+      <xs:element minOccurs="0" name="rig_motherboard" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rig_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rig_processor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rig_ram" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="user" nillable="true" type="tns:user" />
+      <xs:element minOccurs="0" name="user_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="rig" nillable="true" type="tns:rig" />
+  <xs:complexType name="ArrayOfuser_group">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="user_group" nillable="true" type="tns:user_group" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfuser_group" nillable="true" type="tns:ArrayOfuser_group" />
+  <xs:complexType name="user_group">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="group" nillable="true" type="tns:group" />
+      <xs:element minOccurs="0" name="group_id" type="xs:int" />
+      <xs:element minOccurs="0" name="user" nillable="true" type="tns:user" />
+      <xs:element minOccurs="0" name="user_group_id" type="xs:int" />
+      <xs:element minOccurs="0" name="user_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="user_group" nillable="true" type="tns:user_group" />
+  <xs:complexType name="group">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="group_bio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="group_description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="group_id" type="xs:int" />
+      <xs:element minOccurs="0" name="group_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="group_perm" nillable="true" type="tns:ArrayOfgroup_perm" />
+      <xs:element minOccurs="0" name="user_group" nillable="true" type="tns:ArrayOfuser_group" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="group" nillable="true" type="tns:group" />
+  <xs:complexType name="ArrayOfgroup_perm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="group_perm" nillable="true" type="tns:group_perm" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfgroup_perm" nillable="true" type="tns:ArrayOfgroup_perm" />
+  <xs:complexType name="group_perm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="group" nillable="true" type="tns:group" />
+      <xs:element minOccurs="0" name="group_id" type="xs:int" />
+      <xs:element minOccurs="0" name="group_perm_id" type="xs:int" />
+      <xs:element minOccurs="0" name="perm_id" type="xs:int" />
+      <xs:element minOccurs="0" name="permission" nillable="true" type="tns:permission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="group_perm" nillable="true" type="tns:group_perm" />
+  <xs:complexType name="permission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="group_perm" nillable="true" type="tns:ArrayOfgroup_perm" />
+      <xs:element minOccurs="0" name="perm_id" type="xs:int" />
+      <xs:element minOccurs="0" name="perm_name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="permission" nillable="true" type="tns:permission" />
+  <xs:complexType name="ArrayOfthread">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="thread" nillable="true" type="tns:thread" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfthread" nillable="true" type="tns:ArrayOfthread" />
+  <xs:complexType name="ArrayOfThreadModel.ForumThread">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ThreadModel.ForumThread" nillable="true" type="tns:ThreadModel.ForumThread" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfThreadModel.ForumThread" nillable="true" type="tns:ArrayOfThreadModel.ForumThread" />
+  <xs:complexType name="ThreadModel.ForumThread">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="forum_description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="forum_id" type="xs:int" />
+      <xs:element minOccurs="0" name="forum_islocked" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="forum_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="forum_permission" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="thread_created" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="thread_description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="thread_id" type="xs:int" />
+      <xs:element minOccurs="0" name="thread_iscommentlock" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="thread_islocked" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="thread_permission" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="thread_rating_helpful" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="thread_rating_like" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="thread_title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="user_id" type="xs:int" />
+      <xs:element minOccurs="0" name="user_nickname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="user_picture" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="user_username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ThreadModel.ForumThread" nillable="true" type="tns:ThreadModel.ForumThread" />
+  <xs:complexType name="ArrayOfCommentModel.ThreadComment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommentModel.ThreadComment" nillable="true" type="tns:CommentModel.ThreadComment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommentModel.ThreadComment" nillable="true" type="tns:ArrayOfCommentModel.ThreadComment" />
+  <xs:complexType name="CommentModel.ThreadComment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="comment_description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="comment_id" type="xs:int" />
+      <xs:element minOccurs="0" name="user_id" type="xs:int" />
+      <xs:element minOccurs="0" name="user_picture" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="user_username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommentModel.ThreadComment" nillable="true" type="tns:CommentModel.ThreadComment" />
+</xs:schema>

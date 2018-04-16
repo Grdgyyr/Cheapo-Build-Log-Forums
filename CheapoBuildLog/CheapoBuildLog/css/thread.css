@@ -1,0 +1,38 @@
+﻿#body_avatar {
+    max-height: 80px !important;
+    max-width: 80px !important;
+    padding-top: 5px;
+}
+
+#body_figure {
+    margin-top: -60px;
+    background-color: ghostwhite;
+    
+    max-height: 100px;
+    max-width: 100px;
+}
+
+#body_footerRow {
+    height: 100%;
+}
+
+
+h1 {
+    margin-bottom: 30px
+}
+
+#body_panels {
+    margin-top: 50px;
+}
+
+#body_p1 {
+    margin-right: 5px;
+}
+
+#body_i1 {
+    margin-right: 5px;
+}
+
+#lblHelpful, #lblLikes {
+    margin-right: 10px;
+}

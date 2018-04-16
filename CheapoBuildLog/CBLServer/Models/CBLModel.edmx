@@ -1,0 +1,834 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="cheapo_build_logModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="comment">
+          <Key>
+            <PropertyRef Name="comment_id" />
+          </Key>
+          <Property Name="comment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="comment_description" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="forum">
+          <Key>
+            <PropertyRef Name="forum_id" />
+          </Key>
+          <Property Name="forum_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="forum_name" Type="varchar" MaxLength="45" />
+          <Property Name="forum_description" Type="varchar" MaxLength="45" />
+          <Property Name="forum_permission" Type="varchar" MaxLength="45" />
+          <Property Name="forum_islocked" Type="int" />
+        </EntityType>
+        <EntityType Name="forum_thread">
+          <Key>
+            <PropertyRef Name="forum_thread_id" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="forum_id" />
+            <PropertyRef Name="thread_id" />
+          </Key>
+          <Property Name="forum_thread_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="forum_id" Type="int" Nullable="false" />
+          <Property Name="thread_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="group">
+          <Key>
+            <PropertyRef Name="group_id" />
+          </Key>
+          <Property Name="group_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="group_name" Type="varchar" MaxLength="45" />
+          <Property Name="group_description" Type="varchar" MaxLength="45" />
+          <Property Name="group_bio" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="group_perm">
+          <Key>
+            <PropertyRef Name="group_perm_id" />
+            <PropertyRef Name="group_id" />
+            <PropertyRef Name="perm_id" />
+          </Key>
+          <Property Name="group_perm_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="group_id" Type="int" Nullable="false" />
+          <Property Name="perm_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="permission">
+          <Key>
+            <PropertyRef Name="perm_id" />
+          </Key>
+          <Property Name="perm_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="perm_name" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="rig">
+          <Key>
+            <PropertyRef Name="rig_id" />
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="rig_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="rig_name" Type="varchar" MaxLength="45" />
+          <Property Name="rig_processor" Type="varchar" MaxLength="45" />
+          <Property Name="rig_ram" Type="varchar" MaxLength="45" />
+          <Property Name="rig_motherboard" Type="varchar" MaxLength="45" />
+          <Property Name="rig_GPU" Type="varchar" MaxLength="45" />
+          <Property Name="rig_PSU" Type="varchar" MaxLength="45" />
+          <Property Name="rig_cooler" Type="varchar" MaxLength="45" />
+          <Property Name="rig_case" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="thread">
+          <Key>
+            <PropertyRef Name="thread_id" />
+          </Key>
+          <Property Name="thread_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="thread_title" Type="varchar" MaxLength="45" />
+          <Property Name="thread_description" Type="varchar" MaxLength="1000" />
+          <Property Name="thread_permission" Type="varchar" MaxLength="45" />
+          <Property Name="thread_rating_like" Type="int" />
+          <Property Name="thread_rating_helpful" Type="int" />
+          <Property Name="thread_created" Type="datetime" Precision="0" />
+          <Property Name="thread_islocked" Type="int" />
+          <Property Name="thread_iscommentlock" Type="int" />
+        </EntityType>
+        <EntityType Name="thread_comment">
+          <Key>
+            <PropertyRef Name="thread_comment_id" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="thread_id" />
+            <PropertyRef Name="comment_id" />
+          </Key>
+          <Property Name="thread_comment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="thread_id" Type="int" Nullable="false" />
+          <Property Name="comment_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_first" Type="varchar" MaxLength="45" />
+          <Property Name="user_last" Type="varchar" MaxLength="45" />
+          <Property Name="user_username" Type="varchar" MaxLength="16" />
+          <Property Name="user_nickname" Type="varchar" MaxLength="45" />
+          <Property Name="user_password" Type="varchar" MaxLength="16" />
+          <Property Name="user_address" Type="varchar" MaxLength="64" />
+          <Property Name="user_rating_useful" Type="int" />
+          <Property Name="user_gender" Type="varchar" MaxLength="1" />
+          <Property Name="user_registered_date" Type="datetime" Precision="0" />
+          <Property Name="user_birthday" Type="date" />
+          <Property Name="user_email" Type="varchar" MaxLength="45" />
+          <Property Name="user_picture" Type="blob" />
+          <Property Name="user_age" Type="int" />
+          <Property Name="user_bio" Type="varchar" MaxLength="100" />
+          <Property Name="user_mobile" Type="varchar" MaxLength="15" />
+          <Property Name="user_rating_helpful" Type="int" />
+          <Property Name="user_rating_like" Type="int" />
+          <Property Name="user_thread_count" Type="int" />
+        </EntityType>
+        <EntityType Name="user_group">
+          <Key>
+            <PropertyRef Name="user_group_id" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="group_id" />
+          </Key>
+          <Property Name="user_group_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="group_id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_COMMENT_1">
+          <End Role="comment" Type="Self.comment" Multiplicity="1" />
+          <End Role="thread_comment" Type="Self.thread_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comment">
+              <PropertyRef Name="comment_id" />
+            </Principal>
+            <Dependent Role="thread_comment">
+              <PropertyRef Name="comment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORUM_1">
+          <End Role="forum" Type="Self.forum" Multiplicity="1" />
+          <End Role="forum_thread" Type="Self.forum_thread" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="forum">
+              <PropertyRef Name="forum_id" />
+            </Principal>
+            <Dependent Role="forum_thread">
+              <PropertyRef Name="forum_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORUMTHREAD_1">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="forum_thread" Type="Self.forum_thread" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="forum_thread">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUP_1">
+          <End Role="group" Type="Self.group" Multiplicity="1" />
+          <End Role="user_group" Type="Self.user_group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="group">
+              <PropertyRef Name="group_id" />
+            </Principal>
+            <Dependent Role="user_group">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPPERM_1">
+          <End Role="group" Type="Self.group" Multiplicity="1" />
+          <End Role="group_perm" Type="Self.group_perm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="group">
+              <PropertyRef Name="group_id" />
+            </Principal>
+            <Dependent Role="group_perm">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERMISSION_1">
+          <End Role="permission" Type="Self.permission" Multiplicity="1" />
+          <End Role="group_perm" Type="Self.group_perm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="permission">
+              <PropertyRef Name="perm_id" />
+            </Principal>
+            <Dependent Role="group_perm">
+              <PropertyRef Name="perm_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RIG_1">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="rig" Type="Self.rig" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="rig">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_THREAD_1">
+          <End Role="thread" Type="Self.thread" Multiplicity="1" />
+          <End Role="thread_comment" Type="Self.thread_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="thread">
+              <PropertyRef Name="thread_id" />
+            </Principal>
+            <Dependent Role="thread_comment">
+              <PropertyRef Name="thread_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_THREAD_2">
+          <End Role="thread" Type="Self.thread" Multiplicity="1" />
+          <End Role="forum_thread" Type="Self.forum_thread" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="thread">
+              <PropertyRef Name="thread_id" />
+            </Principal>
+            <Dependent Role="forum_thread">
+              <PropertyRef Name="thread_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_THREADCOMMENT_1">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="thread_comment" Type="Self.thread_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="thread_comment">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USERGROUP_1">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="user_group" Type="Self.user_group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="user_group">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="cheapo_build_logModelStoreContainer">
+          <EntitySet Name="comment" EntityType="Self.comment" Schema="cheapo_build_log" store:Type="Tables" />
+          <EntitySet Name="forum" EntityType="Self.forum" Schema="cheapo_build_log" store:Type="Tables" />
+          <EntitySet Name="forum_thread" EntityType="Self.forum_thread" Schema="cheapo_build_log" store:Type="Tables" />
+          <EntitySet Name="group" EntityType="Self.group" Schema="cheapo_build_log" store:Type="Tables" />
+          <EntitySet Name="group_perm" EntityType="Self.group_perm" Schema="cheapo_build_log" store:Type="Tables" />
+          <EntitySet Name="permission" EntityType="Self.permission" Schema="cheapo_build_log" store:Type="Tables" />
+          <EntitySet Name="rig" EntityType="Self.rig" Schema="cheapo_build_log" store:Type="Tables" />
+          <EntitySet Name="thread" EntityType="Self.thread" Schema="cheapo_build_log" store:Type="Tables" />
+          <EntitySet Name="thread_comment" EntityType="Self.thread_comment" Schema="cheapo_build_log" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="cheapo_build_log" store:Type="Tables" />
+          <EntitySet Name="user_group" EntityType="Self.user_group" Schema="cheapo_build_log" store:Type="Tables" />
+          <AssociationSet Name="FK_COMMENT_1" Association="Self.FK_COMMENT_1">
+            <End Role="comment" EntitySet="comment" />
+            <End Role="thread_comment" EntitySet="thread_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORUM_1" Association="Self.FK_FORUM_1">
+            <End Role="forum" EntitySet="forum" />
+            <End Role="forum_thread" EntitySet="forum_thread" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORUMTHREAD_1" Association="Self.FK_FORUMTHREAD_1">
+            <End Role="user" EntitySet="user" />
+            <End Role="forum_thread" EntitySet="forum_thread" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUP_1" Association="Self.FK_GROUP_1">
+            <End Role="group" EntitySet="group" />
+            <End Role="user_group" EntitySet="user_group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPPERM_1" Association="Self.FK_GROUPPERM_1">
+            <End Role="group" EntitySet="group" />
+            <End Role="group_perm" EntitySet="group_perm" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERMISSION_1" Association="Self.FK_PERMISSION_1">
+            <End Role="permission" EntitySet="permission" />
+            <End Role="group_perm" EntitySet="group_perm" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RIG_1" Association="Self.FK_RIG_1">
+            <End Role="user" EntitySet="user" />
+            <End Role="rig" EntitySet="rig" />
+          </AssociationSet>
+          <AssociationSet Name="FK_THREAD_1" Association="Self.FK_THREAD_1">
+            <End Role="thread" EntitySet="thread" />
+            <End Role="thread_comment" EntitySet="thread_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_THREAD_2" Association="Self.FK_THREAD_2">
+            <End Role="thread" EntitySet="thread" />
+            <End Role="forum_thread" EntitySet="forum_thread" />
+          </AssociationSet>
+          <AssociationSet Name="FK_THREADCOMMENT_1" Association="Self.FK_THREADCOMMENT_1">
+            <End Role="user" EntitySet="user" />
+            <End Role="thread_comment" EntitySet="thread_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USERGROUP_1" Association="Self.FK_USERGROUP_1">
+            <End Role="user" EntitySet="user" />
+            <End Role="user_group" EntitySet="user_group" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="cheapo_build_logModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CBL_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="comments" EntityType="cheapo_build_logModel.comment" />
+          <EntitySet Name="forum" EntityType="cheapo_build_logModel.forum" />
+          <EntitySet Name="forum_thread" EntityType="cheapo_build_logModel.forum_thread" />
+          <EntitySet Name="groups" EntityType="cheapo_build_logModel.group" />
+          <EntitySet Name="group_perm" EntityType="cheapo_build_logModel.group_perm" />
+          <EntitySet Name="permissions" EntityType="cheapo_build_logModel.permission" />
+          <EntitySet Name="rigs" EntityType="cheapo_build_logModel.rig" />
+          <EntitySet Name="threads" EntityType="cheapo_build_logModel.thread" />
+          <EntitySet Name="thread_comment" EntityType="cheapo_build_logModel.thread_comment" />
+          <EntitySet Name="users" EntityType="cheapo_build_logModel.user" />
+          <EntitySet Name="user_group" EntityType="cheapo_build_logModel.user_group" />
+          <AssociationSet Name="FK_COMMENT_1" Association="cheapo_build_logModel.FK_COMMENT_1">
+            <End Role="comment" EntitySet="comments" />
+            <End Role="thread_comment" EntitySet="thread_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORUM_1" Association="cheapo_build_logModel.FK_FORUM_1">
+            <End Role="forum" EntitySet="forum" />
+            <End Role="forum_thread" EntitySet="forum_thread" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORUMTHREAD_1" Association="cheapo_build_logModel.FK_FORUMTHREAD_1">
+            <End Role="user" EntitySet="users" />
+            <End Role="forum_thread" EntitySet="forum_thread" />
+          </AssociationSet>
+          <AssociationSet Name="FK_THREAD_2" Association="cheapo_build_logModel.FK_THREAD_2">
+            <End Role="thread" EntitySet="threads" />
+            <End Role="forum_thread" EntitySet="forum_thread" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUP_1" Association="cheapo_build_logModel.FK_GROUP_1">
+            <End Role="group" EntitySet="groups" />
+            <End Role="user_group" EntitySet="user_group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPPERM_1" Association="cheapo_build_logModel.FK_GROUPPERM_1">
+            <End Role="group" EntitySet="groups" />
+            <End Role="group_perm" EntitySet="group_perm" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERMISSION_1" Association="cheapo_build_logModel.FK_PERMISSION_1">
+            <End Role="permission" EntitySet="permissions" />
+            <End Role="group_perm" EntitySet="group_perm" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RIG_1" Association="cheapo_build_logModel.FK_RIG_1">
+            <End Role="user" EntitySet="users" />
+            <End Role="rig" EntitySet="rigs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_THREAD_1" Association="cheapo_build_logModel.FK_THREAD_1">
+            <End Role="thread" EntitySet="threads" />
+            <End Role="thread_comment" EntitySet="thread_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_THREADCOMMENT_1" Association="cheapo_build_logModel.FK_THREADCOMMENT_1">
+            <End Role="user" EntitySet="users" />
+            <End Role="thread_comment" EntitySet="thread_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USERGROUP_1" Association="cheapo_build_logModel.FK_USERGROUP_1">
+            <End Role="user" EntitySet="users" />
+            <End Role="user_group" EntitySet="user_group" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="comment">
+          <Key>
+            <PropertyRef Name="comment_id" />
+          </Key>
+          <Property Name="comment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="comment_description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="thread_comment" Relationship="cheapo_build_logModel.FK_COMMENT_1" FromRole="comment" ToRole="thread_comment" />
+        </EntityType>
+        <EntityType Name="forum">
+          <Key>
+            <PropertyRef Name="forum_id" />
+          </Key>
+          <Property Name="forum_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="forum_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="forum_description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="forum_permission" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="forum_islocked" Type="Int32" />
+          <NavigationProperty Name="forum_thread" Relationship="cheapo_build_logModel.FK_FORUM_1" FromRole="forum" ToRole="forum_thread" />
+        </EntityType>
+        <EntityType Name="forum_thread">
+          <Key>
+            <PropertyRef Name="forum_thread_id" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="forum_id" />
+            <PropertyRef Name="thread_id" />
+          </Key>
+          <Property Name="forum_thread_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="forum_id" Type="Int32" Nullable="false" />
+          <Property Name="thread_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="forum" Relationship="cheapo_build_logModel.FK_FORUM_1" FromRole="forum_thread" ToRole="forum" />
+          <NavigationProperty Name="user" Relationship="cheapo_build_logModel.FK_FORUMTHREAD_1" FromRole="forum_thread" ToRole="user" />
+          <NavigationProperty Name="thread" Relationship="cheapo_build_logModel.FK_THREAD_2" FromRole="forum_thread" ToRole="thread" />
+        </EntityType>
+        <EntityType Name="group">
+          <Key>
+            <PropertyRef Name="group_id" />
+          </Key>
+          <Property Name="group_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="group_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="group_description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="group_bio" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="user_group" Relationship="cheapo_build_logModel.FK_GROUP_1" FromRole="group" ToRole="user_group" />
+          <NavigationProperty Name="group_perm" Relationship="cheapo_build_logModel.FK_GROUPPERM_1" FromRole="group" ToRole="group_perm" />
+        </EntityType>
+        <EntityType Name="group_perm">
+          <Key>
+            <PropertyRef Name="group_perm_id" />
+            <PropertyRef Name="group_id" />
+            <PropertyRef Name="perm_id" />
+          </Key>
+          <Property Name="group_perm_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="group_id" Type="Int32" Nullable="false" />
+          <Property Name="perm_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="group" Relationship="cheapo_build_logModel.FK_GROUPPERM_1" FromRole="group_perm" ToRole="group" />
+          <NavigationProperty Name="permission" Relationship="cheapo_build_logModel.FK_PERMISSION_1" FromRole="group_perm" ToRole="permission" />
+        </EntityType>
+        <EntityType Name="permission">
+          <Key>
+            <PropertyRef Name="perm_id" />
+          </Key>
+          <Property Name="perm_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="perm_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="group_perm" Relationship="cheapo_build_logModel.FK_PERMISSION_1" FromRole="permission" ToRole="group_perm" />
+        </EntityType>
+        <EntityType Name="rig">
+          <Key>
+            <PropertyRef Name="rig_id" />
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="rig_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="rig_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="rig_processor" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="rig_ram" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="rig_motherboard" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="rig_GPU" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="rig_PSU" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="rig_cooler" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="rig_case" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="user" Relationship="cheapo_build_logModel.FK_RIG_1" FromRole="rig" ToRole="user" />
+        </EntityType>
+        <EntityType Name="thread">
+          <Key>
+            <PropertyRef Name="thread_id" />
+          </Key>
+          <Property Name="thread_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="thread_title" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="thread_description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="thread_permission" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="thread_rating_like" Type="Int32" />
+          <Property Name="thread_rating_helpful" Type="Int32" />
+          <Property Name="thread_created" Type="DateTime" />
+          <Property Name="thread_islocked" Type="Int32" />
+          <Property Name="thread_iscommentlock" Type="Int32" />
+          <NavigationProperty Name="forum_thread" Relationship="cheapo_build_logModel.FK_THREAD_2" FromRole="thread" ToRole="forum_thread" />
+          <NavigationProperty Name="thread_comment" Relationship="cheapo_build_logModel.FK_THREAD_1" FromRole="thread" ToRole="thread_comment" />
+        </EntityType>
+        <EntityType Name="thread_comment">
+          <Key>
+            <PropertyRef Name="thread_comment_id" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="thread_id" />
+            <PropertyRef Name="comment_id" />
+          </Key>
+          <Property Name="thread_comment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="thread_id" Type="Int32" Nullable="false" />
+          <Property Name="comment_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="comment" Relationship="cheapo_build_logModel.FK_COMMENT_1" FromRole="thread_comment" ToRole="comment" />
+          <NavigationProperty Name="thread" Relationship="cheapo_build_logModel.FK_THREAD_1" FromRole="thread_comment" ToRole="thread" />
+          <NavigationProperty Name="user" Relationship="cheapo_build_logModel.FK_THREADCOMMENT_1" FromRole="thread_comment" ToRole="user" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_first" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="user_last" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="user_username" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="user_nickname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="user_password" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="user_address" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="user_rating_useful" Type="Int32" />
+          <Property Name="user_gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="user_registered_date" Type="DateTime" />
+          <Property Name="user_birthday" Type="DateTime" />
+          <Property Name="user_email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="user_picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="user_age" Type="Int32" />
+          <Property Name="user_bio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="user_mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="user_rating_helpful" Type="Int32" />
+          <Property Name="user_rating_like" Type="Int32" />
+          <Property Name="user_thread_count" Type="Int32" />
+          <NavigationProperty Name="forum_thread" Relationship="cheapo_build_logModel.FK_FORUMTHREAD_1" FromRole="user" ToRole="forum_thread" />
+          <NavigationProperty Name="rigs" Relationship="cheapo_build_logModel.FK_RIG_1" FromRole="user" ToRole="rig" />
+          <NavigationProperty Name="thread_comment" Relationship="cheapo_build_logModel.FK_THREADCOMMENT_1" FromRole="user" ToRole="thread_comment" />
+          <NavigationProperty Name="user_group" Relationship="cheapo_build_logModel.FK_USERGROUP_1" FromRole="user" ToRole="user_group" />
+        </EntityType>
+        <EntityType Name="user_group">
+          <Key>
+            <PropertyRef Name="user_group_id" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="group_id" />
+          </Key>
+          <Property Name="user_group_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="group_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="group" Relationship="cheapo_build_logModel.FK_GROUP_1" FromRole="user_group" ToRole="group" />
+          <NavigationProperty Name="user" Relationship="cheapo_build_logModel.FK_USERGROUP_1" FromRole="user_group" ToRole="user" />
+        </EntityType>
+        <Association Name="FK_COMMENT_1">
+          <End Type="cheapo_build_logModel.comment" Role="comment" Multiplicity="1" />
+          <End Type="cheapo_build_logModel.thread_comment" Role="thread_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comment">
+              <PropertyRef Name="comment_id" />
+            </Principal>
+            <Dependent Role="thread_comment">
+              <PropertyRef Name="comment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORUM_1">
+          <End Type="cheapo_build_logModel.forum" Role="forum" Multiplicity="1" />
+          <End Type="cheapo_build_logModel.forum_thread" Role="forum_thread" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="forum">
+              <PropertyRef Name="forum_id" />
+            </Principal>
+            <Dependent Role="forum_thread">
+              <PropertyRef Name="forum_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORUMTHREAD_1">
+          <End Type="cheapo_build_logModel.user" Role="user" Multiplicity="1" />
+          <End Type="cheapo_build_logModel.forum_thread" Role="forum_thread" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="forum_thread">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_THREAD_2">
+          <End Type="cheapo_build_logModel.thread" Role="thread" Multiplicity="1" />
+          <End Type="cheapo_build_logModel.forum_thread" Role="forum_thread" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="thread">
+              <PropertyRef Name="thread_id" />
+            </Principal>
+            <Dependent Role="forum_thread">
+              <PropertyRef Name="thread_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUP_1">
+          <End Type="cheapo_build_logModel.group" Role="group" Multiplicity="1" />
+          <End Type="cheapo_build_logModel.user_group" Role="user_group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="group">
+              <PropertyRef Name="group_id" />
+            </Principal>
+            <Dependent Role="user_group">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPPERM_1">
+          <End Type="cheapo_build_logModel.group" Role="group" Multiplicity="1" />
+          <End Type="cheapo_build_logModel.group_perm" Role="group_perm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="group">
+              <PropertyRef Name="group_id" />
+            </Principal>
+            <Dependent Role="group_perm">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERMISSION_1">
+          <End Type="cheapo_build_logModel.permission" Role="permission" Multiplicity="1" />
+          <End Type="cheapo_build_logModel.group_perm" Role="group_perm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="permission">
+              <PropertyRef Name="perm_id" />
+            </Principal>
+            <Dependent Role="group_perm">
+              <PropertyRef Name="perm_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RIG_1">
+          <End Type="cheapo_build_logModel.user" Role="user" Multiplicity="1" />
+          <End Type="cheapo_build_logModel.rig" Role="rig" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="rig">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_THREAD_1">
+          <End Type="cheapo_build_logModel.thread" Role="thread" Multiplicity="1" />
+          <End Type="cheapo_build_logModel.thread_comment" Role="thread_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="thread">
+              <PropertyRef Name="thread_id" />
+            </Principal>
+            <Dependent Role="thread_comment">
+              <PropertyRef Name="thread_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_THREADCOMMENT_1">
+          <End Type="cheapo_build_logModel.user" Role="user" Multiplicity="1" />
+          <End Type="cheapo_build_logModel.thread_comment" Role="thread_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="thread_comment">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USERGROUP_1">
+          <End Type="cheapo_build_logModel.user" Role="user" Multiplicity="1" />
+          <End Type="cheapo_build_logModel.user_group" Role="user_group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="user_group">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="cheapo_build_logModelStoreContainer" CdmEntityContainer="CBL_Entities">
+          <EntitySetMapping Name="comments">
+            <EntityTypeMapping TypeName="cheapo_build_logModel.comment">
+              <MappingFragment StoreEntitySet="comment">
+                <ScalarProperty Name="comment_description" ColumnName="comment_description" />
+                <ScalarProperty Name="comment_id" ColumnName="comment_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="forum">
+            <EntityTypeMapping TypeName="cheapo_build_logModel.forum">
+              <MappingFragment StoreEntitySet="forum">
+                <ScalarProperty Name="forum_islocked" ColumnName="forum_islocked" />
+                <ScalarProperty Name="forum_permission" ColumnName="forum_permission" />
+                <ScalarProperty Name="forum_description" ColumnName="forum_description" />
+                <ScalarProperty Name="forum_name" ColumnName="forum_name" />
+                <ScalarProperty Name="forum_id" ColumnName="forum_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="forum_thread">
+            <EntityTypeMapping TypeName="cheapo_build_logModel.forum_thread">
+              <MappingFragment StoreEntitySet="forum_thread">
+                <ScalarProperty Name="thread_id" ColumnName="thread_id" />
+                <ScalarProperty Name="forum_id" ColumnName="forum_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="forum_thread_id" ColumnName="forum_thread_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="groups">
+            <EntityTypeMapping TypeName="cheapo_build_logModel.group">
+              <MappingFragment StoreEntitySet="group">
+                <ScalarProperty Name="group_bio" ColumnName="group_bio" />
+                <ScalarProperty Name="group_description" ColumnName="group_description" />
+                <ScalarProperty Name="group_name" ColumnName="group_name" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="group_perm">
+            <EntityTypeMapping TypeName="cheapo_build_logModel.group_perm">
+              <MappingFragment StoreEntitySet="group_perm">
+                <ScalarProperty Name="perm_id" ColumnName="perm_id" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="group_perm_id" ColumnName="group_perm_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="permissions">
+            <EntityTypeMapping TypeName="cheapo_build_logModel.permission">
+              <MappingFragment StoreEntitySet="permission">
+                <ScalarProperty Name="perm_name" ColumnName="perm_name" />
+                <ScalarProperty Name="perm_id" ColumnName="perm_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rigs">
+            <EntityTypeMapping TypeName="cheapo_build_logModel.rig">
+              <MappingFragment StoreEntitySet="rig">
+                <ScalarProperty Name="rig_case" ColumnName="rig_case" />
+                <ScalarProperty Name="rig_cooler" ColumnName="rig_cooler" />
+                <ScalarProperty Name="rig_PSU" ColumnName="rig_PSU" />
+                <ScalarProperty Name="rig_GPU" ColumnName="rig_GPU" />
+                <ScalarProperty Name="rig_motherboard" ColumnName="rig_motherboard" />
+                <ScalarProperty Name="rig_ram" ColumnName="rig_ram" />
+                <ScalarProperty Name="rig_processor" ColumnName="rig_processor" />
+                <ScalarProperty Name="rig_name" ColumnName="rig_name" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="rig_id" ColumnName="rig_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="threads">
+            <EntityTypeMapping TypeName="cheapo_build_logModel.thread">
+              <MappingFragment StoreEntitySet="thread">
+                <ScalarProperty Name="thread_iscommentlock" ColumnName="thread_iscommentlock" />
+                <ScalarProperty Name="thread_islocked" ColumnName="thread_islocked" />
+                <ScalarProperty Name="thread_created" ColumnName="thread_created" />
+                <ScalarProperty Name="thread_rating_helpful" ColumnName="thread_rating_helpful" />
+                <ScalarProperty Name="thread_rating_like" ColumnName="thread_rating_like" />
+                <ScalarProperty Name="thread_permission" ColumnName="thread_permission" />
+                <ScalarProperty Name="thread_description" ColumnName="thread_description" />
+                <ScalarProperty Name="thread_title" ColumnName="thread_title" />
+                <ScalarProperty Name="thread_id" ColumnName="thread_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="thread_comment">
+            <EntityTypeMapping TypeName="cheapo_build_logModel.thread_comment">
+              <MappingFragment StoreEntitySet="thread_comment">
+                <ScalarProperty Name="comment_id" ColumnName="comment_id" />
+                <ScalarProperty Name="thread_id" ColumnName="thread_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="thread_comment_id" ColumnName="thread_comment_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="cheapo_build_logModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="user_thread_count" ColumnName="user_thread_count" />
+                <ScalarProperty Name="user_rating_like" ColumnName="user_rating_like" />
+                <ScalarProperty Name="user_rating_helpful" ColumnName="user_rating_helpful" />
+                <ScalarProperty Name="user_mobile" ColumnName="user_mobile" />
+                <ScalarProperty Name="user_bio" ColumnName="user_bio" />
+                <ScalarProperty Name="user_age" ColumnName="user_age" />
+                <ScalarProperty Name="user_picture" ColumnName="user_picture" />
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="user_birthday" ColumnName="user_birthday" />
+                <ScalarProperty Name="user_registered_date" ColumnName="user_registered_date" />
+                <ScalarProperty Name="user_gender" ColumnName="user_gender" />
+                <ScalarProperty Name="user_rating_useful" ColumnName="user_rating_useful" />
+                <ScalarProperty Name="user_address" ColumnName="user_address" />
+                <ScalarProperty Name="user_password" ColumnName="user_password" />
+                <ScalarProperty Name="user_nickname" ColumnName="user_nickname" />
+                <ScalarProperty Name="user_username" ColumnName="user_username" />
+                <ScalarProperty Name="user_last" ColumnName="user_last" />
+                <ScalarProperty Name="user_first" ColumnName="user_first" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_group">
+            <EntityTypeMapping TypeName="cheapo_build_logModel.user_group">
+              <MappingFragment StoreEntitySet="user_group">
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_group_id" ColumnName="user_group_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

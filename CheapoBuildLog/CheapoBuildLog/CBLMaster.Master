@@ -1,0 +1,177 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true"  CodeBehind="CBLMaster.master.cs" Inherits="CheapoBuildLog.CBLMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Cheapo Build Log</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="Bootstrap/Bootstrap.css" rel="stylesheet" />    
+    <link href="Bootstrap/Bootstrap.min.css" rel="stylesheet" />
+    <link href="Bootstrap/Bootstrap-theme.css" rel="stylesheet" />  
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="img/favicon.ico"/>
+    <link href="css/footer.css" rel="stylesheet" />
+    <link href="css/nav.css" rel="stylesheet" />
+    <link href="css/CBL.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/particles.js"></script>
+    <script src="Scripts/particles.min.js"></script>
+    <script src="Scripts/app.js"></script>
+    <script src="Scripts/particles.min.js"></script>
+
+     <script type="text/javascript">
+        $(document).ready(function(){
+        $('#<%=dvMsg.ClientID%>').fadeOut(4000,function(){
+        $(this).html("");
+        });
+       });    
+    </script>
+
+    
+    
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form id="form1" name="test" novalidate runat="server">
+        
+                
+        <nav class="navbar navbar-default" role="navigation" >
+          
+
+            <div class="navbar-header" >
+                
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    
+                    <a class="navbar-brand" href="#">Cheapo BuildLog </a>
+                    
+                
+              
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                  <asp:ContentPlaceHolder ID="navContent" runat="server"></asp:ContentPlaceHolder>
+                
+                
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+                  
+                <li >                     
+                    <asp:LinkButton CssClass="btn" OnClick="linkUserName_Click" ID="linkUserName" runat="server">Guest</asp:LinkButton>
+                </li>
+
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><asp:Image ID="avatar" runat="server" Height="25" Width="25"  /><span class="caret"></span></a>
+			        <ul id="login-dp" class="dropdown-menu">
+
+                        <asp:PlaceHolder ID="phLogin" runat="server">
+                            <li>
+					         <div class="row">
+							        <div class="col-md-12">
+                                        <div>
+                                            <asp:Label ID="lblLoginInfo" runat="server" Text="" ForeColor="Red"></asp:Label>
+                                            <div class="form-group">
+                                                    
+											        <label class="" for="txtEmail">Email address:</label>											         
+                                                    <asp:TextBox ID="txtEmail" CssClass="form-control" placeholder="Email address" type="email" runat="server"></asp:TextBox>
+										        </div>
+										        <div class="form-group">
+											        <label class="" for="txtPassword">Password:</label>											          
+                                                    <asp:TextBox ID="txtPassword" CssClass="form-control" type="password" placeholder="Password" runat="server"></asp:TextBox>
+										        </div>
+										        <div class="form-group">											         
+                                                    <asp:Button ID="btnLogin" type="submit" OnClick="btnLogin_Click" class="btn btn-primary btn-block" runat="server" Text="Sign in" />
+										        </div>										        
+                                        </div>
+							        </div>
+							        <div class="bottom text-center">
+								        New here ? <a href="register.aspx"><b>Join Us</b></a>
+							        </div>
+					         </div>
+				        </li>
+                        </asp:PlaceHolder>
+                        <asp:PlaceHolder ID="phUserContent" runat="server">
+                                                        
+                            <li class="divider"></li>                           
+                            <asp:Button ID="btnLogout" type="submit" OnClick="btnLogout_Click" class="btn btn-primary btn-block" runat="server" Text="Sign out" />                          
+                        </asp:PlaceHolder>                                                  
+			        </ul>
+                </li>
+                  
+                  
+              </ul>
+            </div>
+          
+        </nav>
+        <div ID="dvMsg" class="notification col-sm-12" runat="server" visible="false">
+            <asp:Label ID="lblNotification" CssClass=" fa-2x center-block text-center" runat="server" Text="testing label" ForeColor="White"></asp:Label>
+        </div>
+
+        <div  class="content ">     
+            <div id="particles-js" class="col-sm-12">           
+            </div>
+        <div id="content" class="container">
+            <div id="content-bg" class="col-md-12"></div>
+        
+            
+
+            <asp:ContentPlaceHolder ID="body" runat="server">
+
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <footer>
+            <div class="footer" id="footer">
+                <div class="container">
+                    <div class="row">                                             
+                        <div class="col-lg-6  col-md-6 col-sm-6 col-xs-12">
+                            <h3> Quick Links </h3>
+                            <ul>
+                                <li> <a href="index.aspx"> Home </a> </li>
+                                <li> <a href="forums.aspx"> Forums </a> </li>
+                                <li> <a href="#"> About </a> </li>                                
+                            </ul>
+                        </div>
+                        <div class="col-lg-6  col-md-6 col-sm-6 col-xs-12 ">
+                            <h3> Contact Us </h3>
+                            <ul>
+                                <li>
+                                    <div class="input-append newsletter-box text-center">
+                                        <input type="text" class="full text-center" placeholder="Email ">
+                                        <button class="btn  bg-gray" type="button"> Subscribe to monthly newsletter <i class="fa fa-long-arrow-right"> </i> </button>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="social">
+                                <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
+                                <li> <a href="#"> <i class="fa fa-twitter">   </i> </a> </li>                              
+                                <li> <a href="#"> <i class="fa fa-youtube">   </i> </a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="footer-bottom">
+                <div class="container">
+                    <p class="text-center"> Copyright © Cheapo BuildLog 2017. All right reserved.</p>                  
+                </div>
+            </div>
+        </footer>
+        </div>
+      
+    </form>
+</body>
+</html>

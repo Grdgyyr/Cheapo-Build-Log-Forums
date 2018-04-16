@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ec9f4be58b06450096d204f30ee4da7e" Name="Diagram1">
+        <EntityTypeShape EntityType="cheapo_build_logModel.comment" Width="1.5" PointX="0.75" PointY="18.625" />
+        <EntityTypeShape EntityType="cheapo_build_logModel.forum" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="cheapo_build_logModel.forum_thread" Width="1.5" PointX="3" PointY="3.25" />
+        <EntityTypeShape EntityType="cheapo_build_logModel.group" Width="1.5" PointX="0.75" PointY="15.375" />
+        <EntityTypeShape EntityType="cheapo_build_logModel.group_perm" Width="1.5" PointX="6" PointY="15.5" />
+        <EntityTypeShape EntityType="cheapo_build_logModel.permission" Width="1.5" PointX="3.75" PointY="19.625" />
+        <EntityTypeShape EntityType="cheapo_build_logModel.rig" Width="1.5" PointX="3" PointY="14.875" />
+        <EntityTypeShape EntityType="cheapo_build_logModel.thread" Width="1.5" PointX="0.75" PointY="11.375" />
+        <EntityTypeShape EntityType="cheapo_build_logModel.thread_comment" Width="1.5" PointX="3" PointY="9.25" />
+        <EntityTypeShape EntityType="cheapo_build_logModel.user" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="cheapo_build_logModel.user_group" Width="1.5" PointX="3" PointY="6.5" />
+        <AssociationConnector Association="cheapo_build_logModel.FK_COMMENT_1" />
+        <AssociationConnector Association="cheapo_build_logModel.FK_FORUM_1" />
+        <AssociationConnector Association="cheapo_build_logModel.FK_FORUMTHREAD_1" />
+        <AssociationConnector Association="cheapo_build_logModel.FK_THREAD_2" />
+        <AssociationConnector Association="cheapo_build_logModel.FK_GROUP_1" />
+        <AssociationConnector Association="cheapo_build_logModel.FK_GROUPPERM_1" />
+        <AssociationConnector Association="cheapo_build_logModel.FK_PERMISSION_1" />
+        <AssociationConnector Association="cheapo_build_logModel.FK_RIG_1" />
+        <AssociationConnector Association="cheapo_build_logModel.FK_THREAD_1" />
+        <AssociationConnector Association="cheapo_build_logModel.FK_THREADCOMMENT_1" />
+        <AssociationConnector Association="cheapo_build_logModel.FK_USERGROUP_1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

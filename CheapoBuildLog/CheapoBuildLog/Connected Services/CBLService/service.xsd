@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/CBLServer.Models" />
+  <xs:element name="AddUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user_id" type="xs:int" />
+        <xs:element minOccurs="0" name="user_first" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_last" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_nickname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_address" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_rating_useful" type="xs:int" />
+        <xs:element minOccurs="0" name="user_gender" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_registered_date" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="user_birthday" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="user_email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_picture" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="user_age" type="xs:int" />
+        <xs:element minOccurs="0" name="user_bio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_mobile" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_rating_helpful" type="xs:int" />
+        <xs:element minOccurs="0" name="user_rating_like" type="xs:int" />
+        <xs:element minOccurs="0" name="user_thread_count" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user_id" type="xs:int" />
+        <xs:element minOccurs="0" name="user_first" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_last" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_nickname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_address" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_rating_useful" type="xs:int" />
+        <xs:element minOccurs="0" name="user_gender" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_registered_date" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="user_birthday" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="user_email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_picture" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="user_age" type="xs:int" />
+        <xs:element minOccurs="0" name="user_bio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_mobile" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_rating_helpful" type="xs:int" />
+        <xs:element minOccurs="0" name="user_rating_like" type="xs:int" />
+        <xs:element minOccurs="0" name="user_thread_count" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUser">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CBLServer.Models" minOccurs="0" name="GetAllUserResult" nillable="true" type="q1:ArrayOfuser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userEmail" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CBLServer.Models" minOccurs="0" name="GetUserResult" nillable="true" type="q2:ArrayOfuser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetThreads">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetThreadsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CBLServer.Models" minOccurs="0" name="GetThreadsResult" nillable="true" type="q3:ArrayOfthread" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTotalThreads">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTotalThreadsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTotalThreadsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserCount">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentThread">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentThreadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CBLServer.Models" minOccurs="0" name="GetCurrentThreadResult" nillable="true" type="q4:ArrayOfThreadModel.ForumThread" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentThreadForum">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentThreadForumResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CBLServer.Models" minOccurs="0" name="GetCurrentThreadForumResult" nillable="true" type="q5:ArrayOfThreadModel.ForumThread" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateThread">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user_id" type="xs:int" />
+        <xs:element minOccurs="0" name="forum_id" type="xs:int" />
+        <xs:element minOccurs="0" name="thread_title" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="thread_description" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateThreadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateThreadResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CBLServer.Models" minOccurs="0" name="GetUserByIDResult" nillable="true" type="q6:ArrayOfuser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getThreadComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="thread_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getThreadCommentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CBLServer.Models" minOccurs="0" name="getThreadCommentResult" nillable="true" type="q7:ArrayOfCommentModel.ThreadComment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="comment_descrption" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_id" type="xs:int" />
+        <xs:element minOccurs="0" name="thread_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCommentResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentThreadByThread">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentThreadByThreadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/CBLServer.Models" minOccurs="0" name="GetCurrentThreadByThreadResult" nillable="true" type="q8:ArrayOfThreadModel.ForumThread" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommentCount">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommentCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCommentCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
